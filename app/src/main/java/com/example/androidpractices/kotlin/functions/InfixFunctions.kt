@@ -43,7 +43,46 @@ class MathOperation(private val value: Double,private val key: Double) {
         require(other != 0.0) { "Division by zero is not allowed" }
         return this.value / other
     }
+
+
 }
+class Structure() {
+    infix fun  createPyramid(rows: Int) {
+        var k = 0
+        for (i in 1..rows) {
+            k = 0
+            for (space in 1..rows-i) {
+                print("  ")
+            }
+            while (k != 2*i-1) {
+                print("* ")
+                ++k
+            }
+            println()
+        }
+    }
+}
+
+// DSL for defining user profiles
+class UserProfileDSL {
+    data class UserProfile(var name: String = "", var age: Int = 0, var city: String = "")
+
+    // Infix function for setting the user's name
+    infix fun UserProfile.name(name: String) {
+        this.name = name
+    }
+
+    // Infix function for setting the user's age
+    infix fun UserProfile.age(age: Int) {
+        this.age = age
+    }
+
+    // Infix function for setting the user's city
+    infix fun UserProfile.city(city: String) {
+        this.city = city
+    }
+}
+
 fun main(){
 
     val result = 10 addSuffix "th" // Using infix notation
@@ -71,4 +110,20 @@ fun main(){
 
     val a = 5 shl 2
     println(a)
+
+    val p = Structure()
+    p createPyramid 5       // p.createPyramid(4)
+
+    // Using the DSL to define a user profile
+/*
+    val userProfile = UserProfileDSL().apply {
+
+        name "John Doe"
+        age 25
+        city "Example City"
+    }
+*/
+
+    // Printing the user profile
+  //  println("User Profile: $userProfile")
 }
