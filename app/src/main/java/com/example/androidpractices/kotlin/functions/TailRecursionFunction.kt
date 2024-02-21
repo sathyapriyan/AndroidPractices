@@ -52,6 +52,6 @@ fun main() {
 
     println(fibonacci(n, first, second))
 
-    val number = 5
-    println("Factorial of $number = ${factorial(number)}")
+    val result = factorial(5,1)
+    println("result $result")
 }

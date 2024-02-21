@@ -9,6 +9,7 @@ data class Student(val name:String?,
                     var total:Int?) {
     fun getTotal():Int = (mark1?:0)+(mark2?:0)+(mark3?:0)
 }
+data class User(var name: String, var id: Int)
 
 fun main(){
     val students = listOf(
@@ -52,4 +53,17 @@ fun main(){
         println("total ${it.getTotal()}")
     }
 
+    val user1 = User("Sam", 10)
+
+    val user2 = User("Sam", 10)
+
+    println(user1.toString())
+
+    if (user1 == user2)
+        println("Equal")
+    else
+        println("Not equal")
+
+    val newUser = user1.copy(id = 25)
+    println(newUser)
 }
